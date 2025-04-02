@@ -1,0 +1,43 @@
+#palettes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+#palettes-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  width: 100%;
+}
+
+.color {
+  width: 100%;
+  height: 18em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color span {
+  writing-mode: vertical-rl;
+  font-size: 18px;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+}
+
+.palette:hover span {
+  opacity: 1;
+}
+
+.palette {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+}

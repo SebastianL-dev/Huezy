@@ -1,0 +1,13 @@
+.main-header {
+  margin: 2.5em 15%;
+}
+
+.main-header > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  width: fit-content;
+  font-size: 24px;
+  font-weight: bolder;
+}

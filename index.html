@@ -1,0 +1,133 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/public/huezy-favicon.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="src/styles/globals.css" />
+    <link rel="stylesheet" href="src/styles/header.css" />
+    <link rel="stylesheet" href="src/styles/footer.css" />
+    <link rel="stylesheet" href="src/styles/home.css" />
+    <link rel="stylesheet" href="src/styles/palettes.css" />
+
+    <title>Huezy</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="/">
+        <img src="/public/huezy-favicon.svg" alt="Huezy Logo" width="32" />
+        <span>Huezy</span>
+      </a>
+
+      <nav>
+        <ul></ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section" id="hero-section">
+        <div class="gradient"></div>
+        <div class="gradient"></div>
+
+        <div>
+          <h1>
+            Descubre
+            <span class="color-word"
+              >paletas de <br />
+              colores</span
+            >
+            unicas
+          </h1>
+          <p>
+            Busca entre todas las <strong>paletas de colores</strong> posibles,
+            encuentra la que mejor se adapte a tu <strong>estilo</strong> y
+            usala donde y cuando quieras, no hay limites.
+          </p>
+        </div>
+
+        <form action="search color palletes" method="post" class="search-form">
+          <fieldset>
+            <label for="search-input">
+              <img
+                src="/src/resources/icons/mdi--selection-search.svg"
+                alt="Search Icon"
+                width="24"
+              />
+              <input
+                type="text"
+                id="search-input"
+                name="search-input"
+                placeholder="Busca una paleta..."
+                required
+              />
+            </label>
+          </fieldset>
+
+          <button>Buscar</button>
+        </form>
+      </section>
+
+      <section class="palettes-section" id="palettes-section">
+        <h2>Paletas encontradas</h2>
+        <ul id="palettes-list">
+          <li class="palette">
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+          </li>
+        </ul>
+        <script src="src/js/fetch.js"></script>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <p>
+        Made with ❤️ by
+        <a
+          href="https://github.com/sebastianl-dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+        >
+          Sebastián Lozano
+        </a>
+      </p>
+
+      <ul class="social-links">
+        <li>
+          <a
+            href="https://github.com/SebastianL-dev/Huezy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <img
+              src="/src/resources/icons/lucide--github.svg"
+              alt="Huezy Github"
+              width="32"
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/sebastianl_dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <img
+              src="/src/resources/icons/lucide--instagram.svg"
+              alt="SebastianL-dev Instagram"
+              width="32"
+            />
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
