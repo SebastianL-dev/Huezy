@@ -1,0 +1,96 @@
+@media screen and (max-width: 1600px) {
+  main {
+    margin: 0 5%;
+  }
+
+  .main-footer {
+    margin: 6em 5% 20px 5%;
+  }
+
+  .hero-section div:first-child + div {
+    right: -50px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    margin: 0 2%;
+  }
+
+  .main-footer {
+    margin: 6em 2% 20px 2%;
+  }
+
+  .hero-section div:first-child + div {
+    right: 0px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #palettes-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #search-input {
+    width: 32em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    margin: 0 5%;
+  }
+
+  .main-footer {
+    margin: 6em 5% 20px 5%;
+  }
+
+  .hero-section div:first-child {
+    width: 500px;
+    height: 500px;
+    left: -150px;
+  }
+
+  .hero-section div:first-child + div {
+    width: 300px;
+    height: 300px;
+  }
+
+  #palettes-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #search-input {
+    width: 18em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #search-input {
+    width: 12em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .hero-section div:first-child {
+    width: 300px;
+    height: 300px;
+    left: -150px;
+  }
+
+  .hero-section div:first-child + div {
+    width: 100px;
+    height: 100px;
+  }
+
+  .main-header {
+    gap: 2em;
+    padding: 0.5em 1em;
+  }
+
+  #search-input {
+    width: 8em;
+  }
+}

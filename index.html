@@ -12,33 +12,44 @@
     <link rel="stylesheet" href="src/styles/footer.css" />
     <link rel="stylesheet" href="src/styles/home.css" />
     <link rel="stylesheet" href="src/styles/palettes.css" />
+    <link rel="stylesheet" href="src/styles/responsive.css" />
 
     <title>Huezy</title>
   </head>
   <body>
-    <header class="main-header">
+    <header class="main-header" id="header">
       <a href="/">
         <img src="/public/huezy-favicon.svg" alt="Huezy Logo" width="32" />
         <span>Huezy</span>
       </a>
 
       <nav>
-        <ul></ul>
+        <ul>
+          <li><a href="#hero-section">Inicio</a></li>
+          <li><a href="#palettes-section">Paletas</a></li>
+        </ul>
       </nav>
     </header>
+
+    <script src="src/js/header.js"></script>
 
     <main>
       <section class="hero-section" id="hero-section">
         <div class="gradient"></div>
         <div class="gradient"></div>
 
+        <div class="arrow-down">
+          <img
+            src="/src/resources/icons/mdi--arrow-down-bold-circle-outline.svg"
+            alt="Arrow Down Icon"
+            width="32"
+          />
+        </div>
+
         <div>
           <h1>
             Descubre
-            <span class="color-word"
-              >paletas de <br />
-              colores</span
-            >
+            <span class="color-word">paletas de colores</span>
             unicas
           </h1>
           <p>
@@ -48,7 +59,12 @@
           </p>
         </div>
 
-        <form action="search color palletes" method="post" class="search-form">
+        <form
+          action="search color palletes"
+          method="post"
+          class="search-form"
+          id="search-form"
+        >
           <fieldset>
             <label for="search-input">
               <img
@@ -71,17 +87,21 @@
       </section>
 
       <section class="palettes-section" id="palettes-section">
-        <h2>Paletas encontradas</h2>
-        <ul id="palettes-list">
-          <li class="palette">
-            <div class="color"></div>
-            <div class="color"></div>
-            <div class="color"></div>
-            <div class="color"></div>
-            <div class="color"></div>
-          </li>
-        </ul>
+        <h2 style="align-self: center" class="found-palettes">
+          Paletas encontradas
+        </h2>
+        <ul id="palettes-list" class="found-palettes"></ul>
+
+        <div class="no-palettes" id="no-palettes">
+          <img src="/public/huezy-favicon.svg" alt="Huezy Logo" width="50" />
+          <h3>Empieza a buscar</h3>
+          <p>
+            Usa la barra de búsqueda arriba para encontrar las mejores paletas
+            de colores para tu estilo.
+          </p>
+        </div>
         <script src="src/js/fetch.js"></script>
+        <script src="src/js/copy.js"></script>
       </section>
     </main>
 

@@ -1,8 +1,27 @@
-const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
-  "https://colormagic.app/api/palette/search?q=blue"
+let apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+  "https://colormagic.app/api/palette/search?q="
 )}`;
 
 const list = document.getElementById("palettes-list");
+const form = document.getElementById("search-form");
+const noPalettes = document.getElementById("no-palettes");
+const foundPalettes = document.querySelector(".found-palettes");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const inputValue = document.getElementById("search-input").value.trim();
+  if (!inputValue) return;
+
+  const targetSection = document.getElementById("palettes-section");
+  targetSection.scrollIntoView({ behavior: "smooth" });
+
+  apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+    `https://colormagic.app/api/palette/search?q=${inputValue}`
+  )}`;
+
+  getData();
+});
 
 function getContrastText(bgColor) {
   let r = parseInt(bgColor.substring(1, 3), 16);
@@ -15,29 +34,62 @@ function getContrastText(bgColor) {
 }
 
 async function getData() {
-  const response = await fetch(apiUrl);
-  const data = await response.json();
-  const parsedData = JSON.parse(data.contents);
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    const parsedData = JSON.parse(data.contents);
 
-  list.innerHTML = parsedData
-    .map((color) => {
-      const color1 = getContrastText(color.colors[0]);
-      const color2 = getContrastText(color.colors[1]);
-      const color3 = getContrastText(color.colors[2]);
-      const color4 = getContrastText(color.colors[3]);
-      const color5 = getContrastText(color.colors[4]);
+    if (parsedData.length === 0) {
+      noPalettes.style.display = "flex";
+      foundPalettes.style.display = "none";
 
-      return `<li class="palette">
-            <div class="color" style="background-color: ${color.colors[0]};"><span style="color: ${color1}">${color.colors[0]}</span></div>
-            <div class="color" style="background-color: ${color.colors[1]};"><span style="color: ${color2}">${color.colors[1]}</span></div>
-            <div class="color" style="background-color: ${color.colors[2]};"><span style="color: ${color3}">${color.colors[2]}</span></div>
-            <div class="color" style="background-color: ${color.colors[3]};"><span style="color: ${color4}">${color.colors[3]}</span></div>
-            <div class="color" style="background-color: ${color.colors[4]};"><span style="color: ${color5}">${color.colors[4]}</span></div>
-          </li>`;
-    })
-    .join("");
+      return;
+    }
 
-  console.log(parsedData);
+    noPalettes.style.display = "none";
+    foundPalettes.style.display = "flex";
+
+    list.innerHTML = parsedData
+      .map((color) => {
+        return `<li class="palette">
+              <div class="palette-info">
+                <span>${color.text}</span>
+                <div>
+                  <span>${color.likesCount}</span>
+                  <img src="/src/resources/icons/mdi--cards-heart-outline.svg" alt="Heart icon"/>
+                </div>
+              </div>
+              <div class="color" style="background-color: ${
+                color.colors[0]
+              };"><span id="color-code" style="color: ${getContrastText(
+          color.colors[0]
+        )}">${color.colors[0].toUpperCase()}</span></div>
+              <div class="color" style="background-color: ${
+                color.colors[1]
+              };"><span id="color-code" style="color: ${getContrastText(
+          color.colors[1]
+        )}">${color.colors[1].toUpperCase()}</span></div>
+              <div class="color" style="background-color: ${
+                color.colors[2]
+              };"><span id="color-code" style="color: ${getContrastText(
+          color.colors[2]
+        )}">${color.colors[2].toUpperCase()}</span></div>
+              <div class="color" style="background-color: ${
+                color.colors[3]
+              };"><span id="color-code" style="color: ${getContrastText(
+          color.colors[3]
+        )}">${color.colors[3].toUpperCase()}</span></div>
+              <div class="color" style="background-color: ${
+                color.colors[4]
+              };"><span id="color-code" style="color: ${getContrastText(
+          color.colors[4]
+        )}">${color.colors[4].toUpperCase()}</span></div>
+            </li>`;
+      })
+      .join("");
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 getData();
