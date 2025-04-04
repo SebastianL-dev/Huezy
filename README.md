@@ -28,3 +28,6 @@ huezy/
 ├── index.html
 └── README.md
 ```
+
+>[!Important]
+>Visita la pagina de Huezy: https://huezy.pages.dev/
