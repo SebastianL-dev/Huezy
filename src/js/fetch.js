@@ -2,11 +2,13 @@ let apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
   "https://colormagic.app/api/palette/search?q="
 )}`;
 
+// HTML elements
 const list = document.getElementById("palettes-list");
 const form = document.getElementById("search-form");
 const noPalettes = document.getElementById("no-palettes");
 const foundPalettes = document.querySelector(".found-palettes");
 
+// Event listeners to handle the search form submission
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -23,6 +25,7 @@ form.addEventListener("submit", (e) => {
   getData();
 });
 
+// Function to get the contrast text color based on the background color
 function getContrastText(bgColor) {
   let r = parseInt(bgColor.substring(1, 3), 16);
   let g = parseInt(bgColor.substring(3, 5), 16);
@@ -33,6 +36,7 @@ function getContrastText(bgColor) {
   return luminance > 0.5 ? "#181818" : "#f3f3f3";
 }
 
+// Function to fetch data from the API and update the UI
 async function getData() {
   try {
     const response = await fetch(apiUrl);
