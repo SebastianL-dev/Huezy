@@ -23,7 +23,8 @@ huezy/
 ├── src/
 │   ├── js/
 │   ├── resources/
-│   ├──   └── resources/
+│   ├──   ├── icons/
+│   ├──   └── images/
 │   └── styles/
 ├── index.html
 └── README.md
