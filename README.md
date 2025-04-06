@@ -15,6 +15,11 @@
 - API: https://colormagic.app/api/
 - Hosting: Cloudflare
 
+---
+
+>[!Important]
+>Visita la pagina de Huezy: https://huezy.pages.dev/
+
 ## 📁 Estructura del proyecto
 
 ```bash
@@ -29,6 +34,4 @@ huezy/
 ├── index.html
 └── README.md
 ```
-
->[!Important]
->Visita la pagina de Huezy: https://huezy.pages.dev/
+Made with ♥️ by [Sebastián Lozano](https://github.com/SebastianL-dev)
